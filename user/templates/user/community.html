@@ -1,0 +1,16 @@
+{%extends 'user/home.html'%}
+
+{% block products %}{% endblock products %}
+{% block content %}
+<center>
+    <div style='overflow: auto;position: relative;
+    color:green;
+    
+    width:40rem;height:20rem;' class="bg-dark">
+    {%for i in k%}
+    
+    <p> <h5 style='text-align: left;'><hr>{{i.user.first_name}} {{i.user.last_name}} |</h5> {{i.comment}}</p>
+    {%endfor%}
+    </div>
+    <center>
+{% endblock content %}

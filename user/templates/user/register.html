@@ -1,0 +1,41 @@
+{% extends "App1/base.html" %}
+{% load crispy_forms_tags%}
+{%block cc%}{%endblock%}
+{%block content %}<form  method='POST' action="/user/home">
+    {% csrf_token %}
+    <form action="register" method="POST" >
+      {%csrf_token%}
+          <br><br><br><br><br>
+        <div class="col-md-3"> 
+              <div class="input-group mb-3">
+              {{first|crispy}}
+          <span class="input-group-text" id="basic-addon2">First name</span>
+        </div>
+      </div>
+        <div class="col-md-3"> 
+        <div class="input-group mb-3">
+          {{last|crispy}}
+          <span class="input-group-text" id="basic-addon2">Last name</span>
+        </div>
+        </div>
+        <div class="col-md-3"> 
+          <div class="input-group mb-3">
+            {{company|crispy}}
+          <span class="input-group-text" id="basic-addon2">Company</span>
+          </div>
+        </div><div class="col-md-3"> 
+          <div class="input-group mb-3">
+            {{email|crispy}}
+          <span class="input-group-text" id="basic-addon2">Email</span>
+          </div>
+        </div>
+          <div class="col-md-3"> 
+          <div class="input-group mb-3">
+            {{new|crispy}}
+          <span class="input-group-text" id="basic-addon2">Password</span>
+          </div>
+        </div>
+
+        
+
+<button class="w-25 btn btn-primary btn-lg" name='sign' value='signing'type='submit'><h1>save</h1></button></form>{%endblock%}

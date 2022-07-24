@@ -1,0 +1,86 @@
+{% load static %}
+@font-face {
+  font-family: 'myfont';
+  src: url({% static 'Creattion Demo.otf'%});
+}
+body {
+    min-height: 100rem;
+    padding-top: 0rem;
+  }
+.overflow-auto{
+  width: 40p;
+}
+.navbar-dark {
+  background:#000000;
+
+}
+.ll{
+  font-family: 'myfont';
+  color: rgba(0, 255, 85, 0.637);
+}
+.nav-link :hover{
+color: rgb(0, 47, 92);
+font-family: 'myfont';
+}
+
+.carousel-item{
+  height: 78vh;
+  width: auto;
+  background: no-repeat scroll center scroll;
+  -webkit-background-size:cover;
+  background-size:cover ;  
+   
+}
+.carousel-item ::before {
+
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left:0 ;
+  bottom: 0;
+  right:0;
+  background: #000;
+  opacity: 0.1;
+}
+.carousel-caption{
+  bottom: 180px;
+  padding-left: 100px;
+  padding-right: 100px;
+   
+}
+.carousel-caption h5{
+  font-size: 100px;
+  font-weight: 100;
+}
+.carousel-caption p{
+
+  font-size: 30px;
+  top: 2rem;
+
+
+
+}
+.slider-btn .btn{
+  background-color: #00a028 ;
+  color: white;
+  border-radius: 32px;
+  padding: 1.5rem 2rem;
+  font-size: 1rem; 
+  margin-right:15px ;
+
+}
+.slider-btn .btn-2{
+  color: #111010;
+  background-color: white;
+
+}
+.community{
+color:white;
+
+width: 10rem;
+position:absolute;
+height:10rem ;
+
+
+}

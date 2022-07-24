@@ -1,0 +1,88 @@
+{%extends 'App1/base.html'%}
+{% load crispy_forms_tags%}
+{%block cc%}{%endblock%}
+{%block content%}
+<br><br><br>
+<center>
+  {%if form%}
+  <form action='order' method='POST'>
+    <div class="col-md-3"> 
+    <div class="input-group mb-3">
+      {%csrf_token%}  
+   
+        {{form|crispy}}
+        <span class="input-group-text bg-dark"style='color:green;' id="basic-addon2"> First Name</span>
+      </div>
+    </div>
+
+      <div class="col-md-3"> 
+        <div class="input-group mb-3">
+          <input type="email" class="form-control bg-dark"style='color:green;'  placeholder="your email" required name="email" aria-label="Email address" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">Email address</span>
+        </div>
+      </div>
+      <div class="col-md-3"> 
+        <div class="input-group mb-3">
+          <input type="password" class="form-control bg-dark"style='color:green;'  placeholder="password" name="password" required aria-label="Password" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">Password</span>
+        </div>
+      </div>
+      
+      <div class="col-md-3"> 
+        <div class="input-group mb-3"  >
+          <select class="bg-dark form-select form-select-sm"required style='color:green;' aria-describedby="basic-addon2" name='product'>
+          
+          
+        
+            {% for i in li %}
+            <option selected value='{{productc.name}}'>{{productc.name}}</option>
+            {% empty %}
+              {%for i in product%}
+
+                <option value="{{i.id}}">{{i.name}}</option>
+              {%endfor%}
+            {% endfor %}
+
+
+        </select>
+        <span class="input-group-text" id="basic-addon2">Choose product</span>
+      </div>
+    </div>
+    <div class="col-md-3"> 
+      <div class="input-group mb-3" >
+        <input type="number" class='form-control bg-dark'style="color:green;"value=5 placeholder="" name='amount'>
+        <select class=' form-select bg-dark form-select-sm' aria-label="unit" style="color:green;"name='unit'aria-describedby="basic-addon2">
+          <option value="kg">kg</option>
+          <option value="g">gram</option>
+          <option value="ku">kuntal</option>
+          <option value="kk">tone</option>
+          
+      </select>
+      <span class="input-group-text" id="basic-addon2">Amount</span>
+      </div>
+    </div>
+      <div class="col-md-2"> 
+        <div class="input-group mb-3">
+  {{date|crispy}}
+  <span class="input-group-text" id="basic-addon2">Date</span>
+        </div>
+      </div>      
+    
+    <div class='col-md-3'>
+    <div class="input-group mb-3"> 
+          <select class="bg-dark form-select form-select-sm" aria-describedby="basic-addon2" required style='color:green;' name='how_many_times'>
+              <option value="once">Only once</option>
+              <option value="week">Every week</option>
+              <option value="month">Every month</option>
+          </select>
+          <span class="input-group-text" id="basic-addon2">How many times</span>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+    <button class="w-25 btn btn-secondary btn-lg bg-dark" type='submit'><h1>save</h1></button>
+</form>{% elif  success %} success{% else%}something went wrong{%endif%}</center>
+{% endblock %}

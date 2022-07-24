@@ -1,0 +1,34 @@
+{% extends 'user/home.html' %}
+{% block content %}
+<nav>
+    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Your orders</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Comments</button>
+
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        {% for i in order %}
+        <h3>{{i.product.name}}</h3>
+        <br>
+        {{i.state}}
+        {{i.for_when}}
+        {% empty %}
+        you don't have any orders
+        
+        {% endfor %}
+     
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      {% for k in user.commentsb_set.all  %}
+      <h2>
+      {{k.comment}}</h2>
+      {% empty %}
+      You don't have any comment
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock  %}

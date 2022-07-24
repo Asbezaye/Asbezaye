@@ -1,0 +1,15 @@
+{% extends "user/home.html" %}
+{% block content %}
+
+<div style='overflow: auto;position: relative;
+background:white;
+color:green;
+width:0.1rem
+margin-top: .5rem;
+padding-left:10%;
+padding-right:10%;'>{% for i in k %}
+{% autoescape on%}
+{{i}}
+{% endautoescape %}
+{% endfor %}</div>
+{% endblock%}

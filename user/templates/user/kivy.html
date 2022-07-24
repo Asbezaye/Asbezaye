@@ -1,0 +1,17 @@
+<ol>
+{% for k in i  %}
+<hr>
+<li> <h3>{{k.user.first_name}} {{k.user.last_name}}</h3></li>
+<ul>
+<li>{{k.product.name}}</li>
+
+
+<li>{{k.for_when}}</li>
+
+
+<li>{{k.amount}}{{k.unit}}</li>
+<li>{{k.how_many_times}}</li>
+</ul>
+<hr>
+{% endfor %}
+</ol>

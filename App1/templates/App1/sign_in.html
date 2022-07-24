@@ -1,0 +1,106 @@
+{%extends 'App1/base.html'%}
+{% load crispy_forms_tags%}
+{% block content%}
+{%block cc%}{%endblock%}
+<center>
+	{% if forming%}
+	<form action="register" method="POST" >
+{%csrf_token%}
+    <br><br><br><br><br>
+	<div class="col-md-3"> 
+        <div class="input-group mb-3">
+        {{first|crispy}}
+		<span class="input-group-text" id="basic-addon2">First name</span>
+	</div>
+</div>
+	<div class="col-md-3"> 
+	<div class="input-group mb-3">
+		{{last|crispy}}
+		<span class="input-group-text" id="basic-addon2">Last name</span>
+	</div>
+	</div>
+	<div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{company|crispy}}
+		<span class="input-group-text" id="basic-addon2">Company</span>
+		</div>
+	</div><div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{email|crispy}}
+		<span class="input-group-text" id="basic-addon2">Email</span>
+		</div>
+	</div>
+	{% if password_not%}
+		<div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{new|crispy}}
+		<span class="input-group-text" id="basic-addon2">Password</span>
+		</div>
+	</div>
+	<center>
+	<div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{confirm|crispy}}
+		<span class="input-group-text" id="basic-addon2">Confirm</span>
+		</div>
+	</div>
+	{%else%}
+	<div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{new|crispy}}
+		<span class="input-group-text" id="basic-addon2">Password</span>
+		</div>
+	</div>
+	<center>
+	<div class="col-md-3"> 
+		<div class="input-group mb-3">
+			{{confirm|crispy}}
+		<span class="input-group-text" id="basic-addon2">Confirm</span>
+		</div>
+	</div>
+	{%endif%}
+	
+	{%if ac_code%}
+	<center>
+		<div class="col-md-3"> 
+			<div class="alert alert-danger alert-dismissible fade show" style='background-color:red;' role="alert">
+			wrong activation code
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				</button>
+			  </div>
+		<div class="input-group mb-3">
+			{{serial|crispy}}
+		<span class="input-group-text" id="basic-addon2">Serial</span>
+		</div>
+	</div></center>
+	{%else%}<center>		<div class="col-md-4"> 
+		<div class="input-group mb-3">
+			{{serial|crispy}}
+		<span class="input-group-text" id="basic-addon2">Serial</span>
+		</div>
+	</div></center>{%endif %}
+
+	</div>
+	<button  type="submit" name="sign" value="save"class="btn w-25 btn-lg btn-outline-primary">Save</button>
+	</form>
+</center>
+</center>
+	<p><small style='color:orange;'>aready have an account <a href="/user"><i> sign in<i></a>.</small></p>
+
+
+{%elif sent %}
+<center> 
+	<br><br><br><br><br>
+	<div class="alert alert-primary alert-dismissible fade show" role="alert">
+		We have sent you a verification link at 
+		<a href="www.gmail.com" class="alert-link">{{sent.emal}}</a>.<br>verify your account.
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+		</button>
+	  </div>
+</center>
+{%endif%}
+
+
+
+
+{%endblock%}
