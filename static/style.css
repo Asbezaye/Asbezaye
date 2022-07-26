@@ -1,7 +1,6 @@
 {% load static %}
 @font-face {
   font-family: 'myfont';
-  src: url({% static 'Creattion Demo.otf'%});
 }
 body {
     min-height: 100rem;
