@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
 from pathlib import Path
-import django_heroku
-import dj_database_url
-from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,7 +26,7 @@ SECRET_KEY = 'django-insecure-vqivf5n^@&wzi(ym60-*=t!467n1)&i+4v3&xxm-ytgg5ui0cw
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1','asbezaye.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','']
 
 
 # Application definition
@@ -48,7 +46,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -128,7 +125,7 @@ MEDIA_URL='/images/'
 STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 
-STATICFILES_STORAGE='whitenoice.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -142,4 +139,3 @@ EMAIL_USE_TLS=True
 # myaccount.google.com/lesssecureapps
 # account.google.com/display ulock copption
 CRISPY_TEMPLATE_PACK="bootstrap4"
-django_heroku.settings(locals())
